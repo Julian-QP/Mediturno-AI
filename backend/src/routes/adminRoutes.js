@@ -1,0 +1,10 @@
+import {Router} from 'express';
+import {requireAuth} from '../middlewares/authMiddleware.js';
+import {authorizeDb} from '../middlewares/authorizeDb.js';
+import {listPatients,listManagedDoctors,createDoctor} from '../controllers/adminController.js';
+const router=Router();
+router.use(requireAuth,authorizeDb('admin'));
+router.get('/patients',listPatients);
+router.get('/doctors',listManagedDoctors);
+router.post('/doctors',createDoctor);
+export default router;

@@ -1,0 +1,10 @@
+import {Router} from 'express';
+import {requireAuth} from '../middlewares/authMiddleware.js';
+import {authorizeDb} from '../middlewares/authorizeDb.js';
+import {listSites,getAvailability,publicShifts} from '../controllers/scheduleController.js';
+const router=Router();
+router.use(requireAuth,authorizeDb('patient','doctor','admin'));
+router.get('/sites',listSites);
+router.get('/shifts',publicShifts);
+router.get('/availability',getAvailability);
+export default router;

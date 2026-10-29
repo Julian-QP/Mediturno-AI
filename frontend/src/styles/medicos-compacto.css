@@ -1,0 +1,17 @@
+/* Vista organizada de médicos, sin turnos extendidos en cada fila */
+.doctor-table-head,.doctor-admin-row{display:grid;grid-template-columns:minmax(220px,2fr) minmax(130px,1fr) minmax(92px,.65fr) minmax(135px,1fr) minmax(180px,1.1fr);gap:18px;align-items:center}
+.doctor-table-head{padding:0 10px 13px;border-bottom:1px solid #dce6eb;color:#587485;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px}
+.doctor-admin-row{padding:18px 10px;border-bottom:1px solid #e6eef2}.doctor-admin-row:last-child{border-bottom:0}
+.doctor-identity{display:flex;gap:12px;align-items:center;min-width:0}.doctor-identity .doctor-icon{flex:none}.doctor-identity strong{display:block;line-height:1.35}.doctor-identity small,.doctor-summary small{display:block;color:#718a99;margin-top:5px;overflow-wrap:anywhere}.doctor-specialty{color:#365c70}.doctor-row-action{display:flex;justify-content:flex-end}.doctor-row-action .btn{margin:0;white-space:nowrap;font-size:13px;padding:10px 12px}
+@media(max-width:1050px){.doctor-table-head{display:none}.doctor-admin-row{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:12px}.doctor-row-action{justify-content:flex-start}.doctor-row-action .btn{white-space:normal}}
+@media(max-width:590px){.doctor-admin-row{grid-template-columns:1fr}.doctor-row-action .btn{width:100%}}
+
+/* Gestión individual y masiva de turnos */
+.shift-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#f0f7fa;border-radius:12px;padding:12px;margin-bottom:10px}
+.shift-check-all,.shift-choice{display:flex;align-items:center;gap:12px;cursor:pointer}
+.shift-choice input,.shift-check-all input{width:18px;height:18px;accent-color:#0e7490;flex:none}
+.shift-choice span small{display:block;color:#697f8c;margin-top:5px}
+.shift-entry{padding:14px 8px}.shift-entry .btn-outline{color:#a13737;border-color:#f0c9c9;white-space:nowrap}
+.remove-selected-shifts{background:#b84242;color:white;border:0;border-radius:10px;padding:11px 14px;font-weight:750}
+.remove-selected-shifts:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:600px){.shift-entry{flex-wrap:wrap}.shift-entry .btn-outline{width:100%}.shift-toolbar .remove-selected-shifts{width:100%}}

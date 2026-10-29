@@ -1,0 +1,11 @@
+.site-map-picker71{margin:18px 0;padding:14px;border:1px solid #c7dfe9;border-radius:14px;background:#f4fafc;display:grid;gap:10px}
+.site-map-picker71-head{display:grid;gap:4px;color:#0d3547}
+.site-map-picker71-head small,.site-map-picker71-state{font-size:12px;color:#516c79}
+.site-map-picker71-search{display:flex;gap:8px;flex-wrap:wrap}
+.site-map-picker71-search input{flex:1;min-width:180px;background:white;border:1px solid #c7dfe9;padding:10px;border-radius:8px}
+.site-map-picker71-canvas{height:280px;width:100%;border-radius:10px;background:#dcebf0}
+.site-map-picker71-coords{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.site-map-picker71-coords label{display:grid;gap:3px;font-size:12px;color:#395969}
+.site-map-picker71-coords input{width:100%;border:1px solid #c7dfe9;border-radius:8px;padding:8px;background:white}
+.site-map-picker71 [data-map-clear]{justify-self:start}
+@media(max-width:620px){.site-map-picker71-coords{grid-template-columns:1fr}.site-map-picker71-canvas{height:230px}}

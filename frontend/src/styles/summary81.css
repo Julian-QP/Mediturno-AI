@@ -1,0 +1,6 @@
+.summary81-preview{margin-top:1rem;border:1px solid #d9e7ea;border-radius:12px;background:#fff;padding:18px;max-height:520px;overflow:auto}
+.summary81-preview-title{font-weight:700;color:#176d7d;margin:0 0 12px}
+.summary81-item{padding:11px 0;border-bottom:1px solid #e7eef1}
+.summary81-item:last-child{border-bottom:0}
+.summary81-item h5{font-size:14px;color:#147081;margin:0 0 6px;font-weight:700}
+.summary81-item p{white-space:normal;line-height:1.6;color:#263747;margin:0;font-size:14px}

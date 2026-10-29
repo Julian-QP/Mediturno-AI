@@ -1,0 +1,10 @@
+import {Router} from 'express';
+import {createAppointment,myAppointments,requestCancellation} from '../controllers/appointmentController.js';
+import {requireAuth} from '../middlewares/authMiddleware.js';
+import {authorizeDb} from '../middlewares/authorizeDb.js';
+const router=Router();router.use(requireAuth,authorizeDb('patient'));
+router.post('/',createAppointment);
+router.get('/mine',myAppointments);
+router.patch('/:id/cancel',requestCancellation);
+router.patch('/:id/request-cancellation',requestCancellation);
+export default router;

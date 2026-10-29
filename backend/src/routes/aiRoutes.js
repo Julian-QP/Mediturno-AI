@@ -1,0 +1,17 @@
+import {reviewList} from '../controllers/aiReviewController.js';
+import {Router} from 'express';
+import multer from 'multer';
+import {requireAuth} from '../middlewares/authMiddleware.js';
+import {authorizeDb} from '../middlewares/authorizeDb.js';
+import {doctorSummary,transcribe,generateDraft,saveDraft,approve,patientSummary,pdfDownload} from '../controllers/aiController.js';
+const router=Router();router.use(requireAuth);
+const upload=multer({storage:multer.memoryStorage(),limits:{fileSize:12*1024*1024},fileFilter:(_req,file,cb)=>{const allowed=['audio/webm','audio/wav','audio/x-wav','audio/mpeg','audio/mp4','audio/ogg'];cb(allowed.includes(file.mimetype)?null:new Error('Formato de audio no permitido'),allowed.includes(file.mimetype));}});
+router.get('/doctor/reviews',authorizeDb('doctor'),reviewList);
+router.get('/doctor/appointments/:id',authorizeDb('doctor'),doctorSummary);
+router.post('/doctor/appointments/:id/transcribe',authorizeDb('doctor'),upload.single('audio'),transcribe);
+router.post('/doctor/appointments/:id/draft',authorizeDb('doctor'),generateDraft);
+router.patch('/doctor/appointments/:id/draft',authorizeDb('doctor'),saveDraft);
+router.post('/doctor/appointments/:id/approve',authorizeDb('doctor'),approve);
+router.get('/patient/appointments/:id',authorizeDb('patient'),patientSummary);
+router.get('/appointments/:id/pdf',authorizeDb('doctor','patient'),pdfDownload);
+export default router;

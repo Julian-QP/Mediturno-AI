@@ -1,0 +1,25 @@
+/* Fase 6.4: ajustes visuales aislados de médico y paciente; preservan elementos/eventos de las APIs. */
+.p6-doctors>header,.p6-doctors>.heading{margin-bottom:16px}
+.p6-doctors .card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
+.p6-doctors .card-grid>.card{background:#fff;border:1px solid #dae7ee;border-radius:17px;padding:20px;box-shadow:0 4px 12px #16354a07;min-width:0}
+.p6-doctors .card-grid>.card .doctor-icon{display:grid;place-items:center;background:#e2f3f8;color:#117b99;width:52px;height:52px;border-radius:50%;font-size:24px;float:left;margin:0 14px 12px 0}
+.p6-doctors .card-grid>.card h3{margin:5px 0;color:#12364c;font-size:19px}
+.p6-doctors .card-grid>.card>p{font-size:13px;margin:5px 0 12px}
+.p6-doctors .appointment-form{clear:both;margin-top:15px;border-top:1px solid #e3edf2;padding-top:15px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.p6-doctors .appointment-form .field{min-width:0;margin:0;display:flex;flex-direction:column;gap:5px;font-size:12px;font-weight:650;color:#173b50}
+.p6-doctors .appointment-form .field input,.p6-doctors .appointment-form .field select{width:100%;min-width:0;max-width:100%;border:1px solid #d2e4ed;border-radius:9px;padding:10px;background:#f8fcfe}
+.p6-doctors .appointment-form .field:has(input[name="reason"]),.p6-doctors .appointment-form>p,.p6-doctors .appointment-form>button{grid-column:1/-1}
+.p6-doctors .appointment-form>button{justify-self:end}
+.p6-sites .p6-localmap{position:relative;isolation:isolate;overflow:hidden;min-height:340px;background:#e5f0ef;display:flex;justify-content:center;align-items:center}
+.p6-sites .p6-localmap:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0 18%,#fff 18% 21%,transparent 21% 46%,#fff 46% 49%,transparent 49% 74%,#fff 74% 77%,transparent 77%),linear-gradient(0deg,transparent 0 19%,#fff 19% 23%,transparent 23% 45%,#fff 45% 49%,transparent 49% 76%,#fff 76% 80%,transparent 80%),linear-gradient(125deg,#e4eee9,#d6e8e5);opacity:.92;z-index:-1}
+.p6-sites .p6-localmap:after{content:'';position:absolute;right:13%;top:-10%;bottom:-15%;width:15%;transform:rotate(10deg);background:#bbdce7;z-index:-1}
+.p6-sites .p6-localmap strong{background:white;border-radius:8px;padding:8px 12px;box-shadow:0 2px 12px #173a4e20}
+.p6-sites .p6-localmap p{max-width:320px;background:#ffffffed;padding:10px;border-radius:8px}
+.p6-site-list .p6-panel{min-height:130px}
+.d64-exam-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}.d64-exam-heading small{color:#658498}
+.d64-exam-row{display:grid;grid-template-columns:42px minmax(170px,1fr) auto auto;gap:18px;align-items:center;padding:22px 0;border-top:1px solid #e3edf2}
+.d64-exam-icon{height:40px;width:40px;display:grid;place-items:center;background:#eef8fa;border-radius:11px;color:#087f9b;font-size:23px}
+.d64-exam-content{min-width:0}.d64-exam-content h3{margin:0 0 6px}.d64-exam-content p{margin:0 0 5px}.d64-status{background:#e6f3fb;color:#087295;border-radius:99px;font-size:12px;font-weight:700;padding:7px 10px;white-space:nowrap}.d64-status.done{background:#e1f5ed;color:#13764e}
+.d64-instructions{font-size:13px;margin-top:9px;max-width:620px}.d64-instructions summary{color:#087c9b;cursor:pointer}.d64-instructions p{overflow-wrap:anywhere;white-space:pre-line}.d64-empty{text-align:center;padding:24px}.d64-exam-info{background:#edf8fb;border-radius:12px;padding:15px;color:#167798;font-size:13px}
+@media(max-width:900px){.p6-doctors .card-grid{grid-template-columns:1fr}.d64-exam-row{grid-template-columns:42px 1fr auto}.d64-action{grid-column:2/-1;justify-self:end}}
+@media(max-width:560px){.p6-doctors .appointment-form{grid-template-columns:1fr}.p6-doctors .appointment-form .field,.p6-doctors .appointment-form>button{grid-column:1/-1}.d64-exam-row{grid-template-columns:40px 1fr}.d64-status,.d64-action{grid-column:2;justify-self:start}}

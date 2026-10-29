@@ -1,0 +1,20 @@
+/* Fase 6.1 — ficha médica en espacio principal; no es un modal */
+main.mediturno-care-mode > :not(#mediturno-care-screen) {display:none!important}
+#mediturno-care-screen{width:100%;max-width:1280px;margin:0 auto;padding:16px 8px 55px;position:relative;z-index:1}
+#mediturno-care-screen .clinical-modal{position:static!important;transform:none!important;width:100%!important;max-width:none!important;max-height:none!important;overflow:visible!important;background:transparent!important;box-shadow:none!important;padding:0!important;border:0!important}
+#mediturno-care-screen .modal-header{display:flex;justify-content:space-between;align-items:center;gap:14px;background:var(--card-bg,#fff);border-radius:16px;padding:18px 22px;margin-bottom:16px}
+#mediturno-care-screen .modal-body{padding:0!important;overflow:visible!important;max-height:none!important;display:block}
+#mediturno-care-screen .care-intro,#mediturno-care-screen .care-tabs,#mediturno-care-screen .care-pane{background:var(--card-bg,#fff);border:1px solid var(--border-color,#dfe5eb);border-radius:14px;padding:18px;margin-bottom:14px}
+#mediturno-care-screen .care-intro{background:var(--card-bg,#fff)}
+#mediturno-care-screen .care-tabs{display:flex;flex-wrap:wrap;gap:8px;padding:10px}
+#mediturno-care-screen .care-tab{border:1px solid #cfd8e3;background:transparent;padding:10px 16px;border-radius:10px;cursor:pointer;font:inherit;color:inherit}
+#mediturno-care-screen .care-tab[aria-selected="true"]{background:#135ca8;border-color:#135ca8;color:#fff}
+#mediturno-care-screen .care-pane[hidden]{display:none!important}
+#mediturno-care-screen .clinical-cols{display:block!important}
+#mediturno-care-screen .clinical-cols>section{max-width:none!important}
+#mediturno-care-screen .care-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+#mediturno-care-screen .care-toolbar .btn-outline{cursor:pointer}
+#mediturno-care-screen .modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+#mediturno-care-screen .care-pane textarea{width:100%;min-height:95px}
+#mediturno-care-screen .care-placeholder{padding:18px;color:var(--text-muted,#667085)}
+@media(max-width:760px){#mediturno-care-screen{padding:10px 0 40px}#mediturno-care-screen .care-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}#mediturno-care-screen .care-tab{font-size:13px;padding:10px 6px}}

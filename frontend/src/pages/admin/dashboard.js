@@ -1,0 +1,9 @@
+import {heading,searchBar} from '../../components/layout/DashboardLayout.js';
+import {noticeBanner} from '../../components/ui/NoticeBanner.js';
+import {statCard} from '../../components/ui/StatCard.js';
+export function adminDashboard({sites=[],doctors=[],shifts=[],blocks=[]}={}){
+ return heading('Panel administrativo','Accesos directos a sedes, médicos y comunicados institucionales.')+noticeBanner()+searchBar('Buscar sede, médico, paciente, cita o comunicado')+
+ `<section class="hero"><span class="eyebrow">ADMINISTRACIÓN DE CENTROS</span><h2>Gestión institucional</h2><p>Organiza los establecimientos, los turnos médicos y las suspensiones de atención.</p><a class="btn-white" href="#announcements">Ver comunicados y bloqueos →</a></section>`+
+ `<div class="stat-grid">${statCard(sites.length,'Sedes registradas','locations','⌖')}${statCard(doctors.length,'Médicos registrados','doctors','♧')}${statCard(shifts.filter(s=>s.isActive).length,'Turnos activos','doctors','◷')}${statCard(blocks.length,'Bloqueos registrados','announcements','▣')}</div>`+
+ `<section class="card"><h3>Accesos rápidos</h3><p class="muted">Cada acción tiene su sección, para evitar formularios mezclados en una sola página.</p><div class="admin-quick-grid"><a class="admin-quick-card" href="#locations"><span class="admin-quick-icon">⌖</span><strong>Sedes y consultorios</strong><span>Consultar sedes y crear establecimientos.</span><b>Ir a Sedes →</b></a><a class="admin-quick-card" href="#doctors"><span class="admin-quick-icon">♧</span><strong>Médicos y horarios</strong><span>Crear médicos, asignar días y modificar turnos.</span><b>Gestionar médicos →</b></a><a class="admin-quick-card" href="#announcements"><span class="admin-quick-icon">▣</span><strong>Comunicados y bloqueos</strong><span>Avisos informativos, urgentes y suspensiones.</span><b>Ver centro de avisos →</b></a></div></section>`;
+}

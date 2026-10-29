@@ -1,0 +1,32 @@
+# Secretos
+.env
+.env.*
+!.env.example
+!.env.*.example
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.*.example
+
+# Dependencias y salidas
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.vercel/
+
+# Datos privados y grabaciones
+**/uploads/
+**/mediturno-live-private/
+*.mp3
+*.wav
+*.webm
+*.m4a
+*.pdf
+
+# Copias y archivos temporales
+*.bak
+*.bak-*
+*.log
+.DS_Store
+Thumbs.db

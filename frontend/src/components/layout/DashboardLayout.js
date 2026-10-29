@@ -1,0 +1,9 @@
+import {escapeHtml} from '../../utils/format.js';
+import {NAV,roleName} from './navigation.js';
+export function layout({role='patient',page='dashboard',name='Usuario',content=''}){
+ const nav=NAV[role]||NAV.patient;
+ return `<div class="app-shell"><header class="topbar"><button type="button" class="mobile-toggle" data-action="toggle-menu" aria-label="Abrir menú">☰</button><a class="brand" href="#dashboard"><span class="brand-mark">✚</span><span>MediTurno <em>AI</em></span></a><div class="top-actions"><a href="#announcements" class="notification-link" title="Comunicados">♧ <span>Comunicados</span></a><span class="user-pill">◉ ${escapeHtml(name)} <small>${roleName[role]}</small></span><button class="logout-btn" type="button" data-action="logout">Salir</button></div></header><div class="content-shell"><aside class="sidebar" id="sidebar"><div class="sidebar-title">MENÚ · ${roleName[role].toUpperCase()}</div>${nav.map(([path,icon,label])=>`<a class="nav-item ${page===path?'active':''}" href="#${path}"><span class="nav-icon">${icon}</span><span>${label}</span></a>`).join('')}</aside><main class="main"><div id="alert" aria-live="polite"></div>${content}<footer class="footer">MediTurno AI · Prototipo académico · Funciones clínicas en desarrollo</footer></main></div></div>`;
+}
+export const heading=(title,subtitle='')=>`<div class="page-heading"><div class="crumb">MediTurno AI / ${escapeHtml(title)}</div><h1>${escapeHtml(title)}</h1><p>${escapeHtml(subtitle)}</p></div>`;
+export const searchBar=(placeholder)=>`<label class="search"><span>⌕</span><input type="search" id="page-search" placeholder="${escapeHtml(placeholder)}" aria-label="${escapeHtml(placeholder)}"></label>`;
+export const empty=(title,desc)=>`<div class="empty"><strong>${escapeHtml(title)}</strong><p>${escapeHtml(desc)}</p></div>`;

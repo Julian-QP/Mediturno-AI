@@ -1,0 +1,3 @@
+import {heading,searchBar,empty} from '../../components/layout/DashboardLayout.js';
+import {escapeHtml} from '../../utils/format.js';
+export function adminPatientsPage(patients=[]){return heading('Pacientes registrados','Consulta cuentas de pacientes sin acceder a información clínica.')+searchBar('Buscar paciente o correo')+`<section class="card searchable-list"><h3>Pacientes (${patients.length})</h3>${patients.length?patients.map(p=>`<div class="appointment-row searchable-item"><div><strong>${escapeHtml(p.name)}</strong><p class="muted">${escapeHtml(p.email)}</p></div><span class="tag ${p.isActive?'success':'danger'}">${p.isActive?'Activo':'Inactivo'}</span></div>`).join(''):empty('Sin pacientes','Los usuarios aparecerán después del registro público.')}</section>`}

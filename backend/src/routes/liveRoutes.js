@@ -1,0 +1,13 @@
+import {Router} from 'express';
+import multer from 'multer';
+import {requireAuth} from '../middlewares/authMiddleware.js';
+import {authorizeDb} from '../middlewares/authorizeDb.js';
+import {consent,streamingToken,saveRecording,recordingInfo,recordingAudio} from '../controllers/liveController.js';
+const router=Router();router.use(requireAuth,authorizeDb('doctor'));
+const upload=multer({storage:multer.memoryStorage(),limits:{fileSize:20*1024*1024},fileFilter:(_req,file,cb)=>cb(null,['audio/webm','audio/ogg','audio/mp4','audio/wav'].includes(file.mimetype))});
+router.post('/appointments/:id/consent',consent);
+router.post('/appointments/:id/token',streamingToken);
+router.post('/appointments/:id/finish',upload.single('audio'),saveRecording);
+router.get('/appointments/:id',recordingInfo);
+router.get('/appointments/:id/audio',recordingAudio);
+export default router;
